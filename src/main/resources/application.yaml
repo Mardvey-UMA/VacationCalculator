@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: vacation-calculator
+app:
+  api:
+    base-url: https://date.nager.at/api/v3/PublicHolidays
+    country-code: RU
+    start-year: 2023
+    end-year: 2026
