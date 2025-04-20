@@ -7,3 +7,9 @@ app:
     country-code: RU
     start-year: 2023
     end-year: 2026
+
+springfox:
+  documentation:
+    swagger-ui:
+      enabled: true
+      base-url: /swagger-ui
