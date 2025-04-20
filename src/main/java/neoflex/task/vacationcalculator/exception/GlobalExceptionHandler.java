@@ -1,5 +1,6 @@
 package neoflex.task.vacationcalculator.exception;
 
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -39,11 +40,25 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return buildErrorResponse(ex, HttpStatus.INTERNAL_SERVER_ERROR, request);
     }
 
+    @Override
+    protected ResponseEntity<Object> handleExceptionInternal(
+            Exception ex,
+            Object body,
+            HttpHeaders headers,
+            HttpStatus status,
+            WebRequest request) {
+        return buildErrorResponse(
+                new InvalidRequestException(),
+                status,
+                request
+        );
+    }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Object> handleAllExceptions(Exception ex, WebRequest request) {
         return buildErrorResponse(
-                new RuntimeException("Сервис недоступен, попробуйте позднее"),
-                HttpStatus.INTERNAL_SERVER_ERROR,
+                new InvalidRequestException(),
+                HttpStatus.BAD_REQUEST,
                 request
         );
     }

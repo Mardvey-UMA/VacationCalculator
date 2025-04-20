@@ -2,6 +2,7 @@ package neoflex.task.vacationcalculator.controller;
 
 import lombok.RequiredArgsConstructor;
 import neoflex.task.vacationcalculator.dto.CalculateVacationResponseDTO;
+import neoflex.task.vacationcalculator.exception.InvalidRequestException;
 import neoflex.task.vacationcalculator.service.interfaces.VacationCalculationOrchestrator;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;

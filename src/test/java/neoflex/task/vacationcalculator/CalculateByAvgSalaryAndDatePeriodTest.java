@@ -9,6 +9,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -31,11 +32,11 @@ public class CalculateByAvgSalaryAndDatePeriodTest {
 
         double avgSalary = 100_000.0;
 
-        CalculateVacationResponseDTO expected = new CalculateVacationResponseDTO(27303.75);
+        CalculateVacationResponseDTO expected = new CalculateVacationResponseDTO(BigDecimal.valueOf(27_303.75));
 
         CalculateVacationResponseDTO actual = calculateVacationPayoutService.calculateVacationPayout(avgSalary, startDate, endDate);
 
-        assertEquals(expected.getPayout(), actual.getPayout(), 0.01);
+        assertEquals(expected.getExpectedPayout(), actual.getExpectedPayout());
     }
 
     @Test
@@ -47,12 +48,12 @@ public class CalculateByAvgSalaryAndDatePeriodTest {
 
         double avgSalary = 120_000.0;
 
-        CalculateVacationResponseDTO expected = new CalculateVacationResponseDTO(20477.82);
+        CalculateVacationResponseDTO expected = new CalculateVacationResponseDTO(BigDecimal.valueOf(20_477.82));
 
         CalculateVacationResponseDTO actual = calculateVacationPayoutService
                 .calculateVacationPayout(avgSalary, startDate, endDate);
 
-        assertEquals(expected.getPayout(), actual.getPayout(), 0.01);
+        assertEquals(expected.getExpectedPayout(), actual.getExpectedPayout());
     }
 
     @Test
@@ -64,12 +65,12 @@ public class CalculateByAvgSalaryAndDatePeriodTest {
 
         double avgSalary = 85_000.0;
 
-        CalculateVacationResponseDTO expected = new CalculateVacationResponseDTO(26109.22);
+        CalculateVacationResponseDTO expected = new CalculateVacationResponseDTO(BigDecimal.valueOf(26_109.22));
 
         CalculateVacationResponseDTO actual = calculateVacationPayoutService
                 .calculateVacationPayout(avgSalary, startDate, endDate);
 
-        assertEquals(expected.getPayout(), actual.getPayout(), 0.01);
+        assertEquals(expected.getExpectedPayout(), actual.getExpectedPayout());
     }
 
     @Test
@@ -81,12 +82,12 @@ public class CalculateByAvgSalaryAndDatePeriodTest {
 
         double avgSalary = 150_000.0;
 
-        CalculateVacationResponseDTO expected = new CalculateVacationResponseDTO(46075.09);
+        CalculateVacationResponseDTO expected = new CalculateVacationResponseDTO(BigDecimal.valueOf(46_075.09));
 
         CalculateVacationResponseDTO actual = calculateVacationPayoutService
                 .calculateVacationPayout(avgSalary, startDate, endDate);
 
-        assertEquals(expected.getPayout(), actual.getPayout(), 0.01);
+        assertEquals(expected.getExpectedPayout(), actual.getExpectedPayout());
     }
 
     @Test
@@ -98,11 +99,11 @@ public class CalculateByAvgSalaryAndDatePeriodTest {
 
         double avgSalary = 200_000.0;
 
-        CalculateVacationResponseDTO expected = new CalculateVacationResponseDTO(27303.75);
+        CalculateVacationResponseDTO expected = new CalculateVacationResponseDTO(BigDecimal.valueOf(27_303.75));
 
         CalculateVacationResponseDTO actual = calculateVacationPayoutService
                 .calculateVacationPayout(avgSalary, startDate, endDate);
 
-        assertEquals(expected.getPayout(), actual.getPayout(), 0.01);
+        assertEquals(expected.getExpectedPayout(), actual.getExpectedPayout());
     }
 }

@@ -3,7 +3,6 @@ package neoflex.task.vacationcalculator;
 import neoflex.task.vacationcalculator.exception.InvalidVacationDateException;
 import neoflex.task.vacationcalculator.repository.HolidayCache;
 import neoflex.task.vacationcalculator.service.implementation.WorkingDaysCalculationServiceImpl;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -62,18 +61,9 @@ public class WorkingDaysCalculationServiceTest {
         );
     }
 
-    @BeforeEach
-    void setUp() {
-
-        when(holidayCache.getHolidays(2025))
-                .thenReturn(holidaysList2025());
-
-        when(holidayCache.getHolidays(2026))
-                .thenReturn(holidaysList2026());
-    }
-
     @Test
     void getVacationDaysCount_Test1() {
+        when(holidayCache.getHolidays(2025)).thenReturn(holidaysList2025());
         LocalDate startDate = LocalDate.of(2025, 1, 1);
         LocalDate endDate = LocalDate.of(2025, 1, 10);
 
@@ -84,6 +74,7 @@ public class WorkingDaysCalculationServiceTest {
 
     @Test
     void getVacationDaysCount_Test2() {
+        when(holidayCache.getHolidays(2025)).thenReturn(holidaysList2025());
         LocalDate startDate = LocalDate.of(2025, 2, 1);
         LocalDate endDate = LocalDate.of(2025, 2, 14);
 
@@ -94,6 +85,7 @@ public class WorkingDaysCalculationServiceTest {
 
     @Test
     void getVacationDaysCount_Test3() {
+        when(holidayCache.getHolidays(2025)).thenReturn(holidaysList2025());
         LocalDate startDate = LocalDate.of(2025, 5, 1);
         LocalDate endDate = LocalDate.of(2025, 5, 10);
 
@@ -104,6 +96,7 @@ public class WorkingDaysCalculationServiceTest {
 
     @Test
     void getVacationDaysCount_Test4() {
+        when(holidayCache.getHolidays(2025)).thenReturn(holidaysList2025());
         LocalDate startDate = LocalDate.of(2025, 6, 5);
         LocalDate endDate = LocalDate.of(2025, 6, 15);
 
@@ -114,6 +107,8 @@ public class WorkingDaysCalculationServiceTest {
 
     @Test
     void getVacationDaysCount_Test5() {
+        when(holidayCache.getHolidays(2025)).thenReturn(holidaysList2025());
+        when(holidayCache.getHolidays(2026)).thenReturn(holidaysList2026());
         LocalDate startDate = LocalDate.of(2025, 12, 28);
         LocalDate endDate = LocalDate.of(2026, 1, 11);
 
