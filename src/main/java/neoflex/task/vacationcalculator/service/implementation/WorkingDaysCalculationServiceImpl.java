@@ -38,7 +38,7 @@ public class WorkingDaysCalculationServiceImpl implements WorkingDaysCalculation
     }
 
     private static boolean isWeekend(LocalDate date) {
-        return date.getDayOfWeek() == DayOfWeek.SATURDAY;
+        return date.getDayOfWeek() == DayOfWeek.SATURDAY || date.getDayOfWeek() == DayOfWeek.SUNDAY;
     }
 
     private boolean isHoliday(LocalDate date) {

@@ -17,7 +17,7 @@ public class VacationSalaryCalculatorController {
 
     @GetMapping()
     public CalculateVacationResponseDTO getVacationSalary(
-            @RequestParam Float avgSalary,
+            @RequestParam Double avgSalary,
             @RequestParam(required = false) Integer vacationDays,
             @RequestParam(required = false) @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate startDate,
             @RequestParam(required = false) @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate endDate

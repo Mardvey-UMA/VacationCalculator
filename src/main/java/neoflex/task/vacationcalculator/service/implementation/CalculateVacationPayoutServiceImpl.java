@@ -14,19 +14,18 @@ import java.time.Period;
 public class CalculateVacationPayoutServiceImpl implements CalculateVacationPayoutService {
 
     private final WorkingDaysCalculationService workingDaysCalculationService;
-    private static final float AVG_DAYS_IN_MONTH = 29.3f;
+    private static final double AVG_DAYS_IN_MONTH = 29.3f;
 
     @Override
-    public CalculateVacationResponseDTO calculateVacationPayout(float avgSalary, int numberOfDays) {
-        float payout = avgSalary / AVG_DAYS_IN_MONTH * numberOfDays;
-        return new CalculateVacationResponseDTO(numberOfDays, null, payout);
+    public CalculateVacationResponseDTO calculateVacationPayout(double avgSalary, int numberOfDays) {
+        double payout = avgSalary / AVG_DAYS_IN_MONTH * numberOfDays;
+        return new CalculateVacationResponseDTO(payout);
     }
 
     @Override
-    public CalculateVacationResponseDTO calculateVacationPayout(float avgSalary, LocalDate startDate, LocalDate endDate) {
+    public CalculateVacationResponseDTO calculateVacationPayout(double avgSalary, LocalDate startDate, LocalDate endDate) {
         int numberOfDays = workingDaysCalculationService.getVacationDaysCount(startDate, endDate);
-        int vacationDaysCount = Period.between(startDate, endDate).getDays() + 1;
-        float payout = avgSalary / AVG_DAYS_IN_MONTH * numberOfDays;
-        return new CalculateVacationResponseDTO(numberOfDays, vacationDaysCount - numberOfDays, payout);
+        double payout = avgSalary / AVG_DAYS_IN_MONTH * numberOfDays;
+        return new CalculateVacationResponseDTO(payout);
     }
 }

@@ -5,7 +5,7 @@ import neoflex.task.vacationcalculator.dto.CalculateVacationResponseDTO;
 import java.time.LocalDate;
 
 public interface VacationCalculationOrchestrator {
-    CalculateVacationResponseDTO calculateVacation(Float avgSalary,
+    CalculateVacationResponseDTO calculateVacation(       Double avgSalary,
                                                           Integer vacationDays,
                                                           LocalDate startDate,
                                                           LocalDate endDate);

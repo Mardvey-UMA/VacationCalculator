@@ -18,7 +18,7 @@ public class VacationCalculationOrchestratorImpl implements VacationCalculationO
     private final CalculateVacationPayoutService calculateVacationPayoutService;
 
     @Override
-    public CalculateVacationResponseDTO calculateVacation(Float avgSalary, Integer vacationDays, LocalDate startDate, LocalDate endDate) {
+    public CalculateVacationResponseDTO calculateVacation(Double avgSalary, Integer vacationDays, LocalDate startDate, LocalDate endDate) {
         if (avgSalary == null || avgSalary <= 0) {
             throw new InvalidAverageSalaryException();
         }

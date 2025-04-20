@@ -34,6 +34,11 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return buildErrorResponse(ex, HttpStatus.BAD_REQUEST, request);
     }
 
+    @ExceptionHandler(ErrorWithHolidaysDaysAPI.class)
+    public ResponseEntity<Object> handleErrorWithHolidaysDays(ErrorWithHolidaysDaysAPI ex, WebRequest request) {
+        return buildErrorResponse(ex, HttpStatus.INTERNAL_SERVER_ERROR, request);
+    }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Object> handleAllExceptions(Exception ex, WebRequest request) {
         return buildErrorResponse(

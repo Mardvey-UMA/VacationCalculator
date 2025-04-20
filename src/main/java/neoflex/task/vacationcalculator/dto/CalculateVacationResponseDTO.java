@@ -6,7 +6,9 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class CalculateVacationResponseDTO {
-    Integer numberOfDays;
-    Integer numberOfOfficialHolidays;
-    Float expectedPayout;
+    Double expectedPayout;
+
+    public Double getPayout() {
+        return this.expectedPayout;
+    }
 }

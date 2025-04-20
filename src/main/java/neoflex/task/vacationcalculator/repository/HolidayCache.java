@@ -1,6 +1,7 @@
 package neoflex.task.vacationcalculator.repository;
 
 import neoflex.task.vacationcalculator.dto.HolidayDTO;
+import neoflex.task.vacationcalculator.exception.ErrorWithHolidaysDaysAPI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -69,7 +70,7 @@ public class HolidayCache {
                 holidays.put(year, dates);
             }
         } catch (Exception e) {
-            System.err.println("Error with API: " + e.getMessage());
+            throw new ErrorWithHolidaysDaysAPI();
         }
     }
 }
